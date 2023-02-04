@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selfCollision: {fileID: 458906743366836372}
+  health: 1
+  drop: {fileID: 5674045578843026355, guid: 4974074e5dcec234c967fd884fe7e237, type: 3}
 --- !u!1 &2288254599413878114
 GameObject:
   m_ObjectHideFlags: 0
