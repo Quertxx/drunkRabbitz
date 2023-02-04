@@ -12,7 +12,7 @@ public class Enemy3 : MonoBehaviour
 
 
     //shoot variables
-    public int detectionDistance;
+    public float detectionDistance;
     GameObject player;
     [SerializeField] GameObject bullet;
     [SerializeField] float bulletSpeed;
@@ -20,6 +20,7 @@ public class Enemy3 : MonoBehaviour
     GameObject clone;
     private bool isShooting = false;
     [SerializeField] Transform shootLocation;
+    [SerializeField] GameObject pivotPoint;
     
 
 
@@ -32,6 +33,10 @@ public class Enemy3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rotateCrosshair(pivotPoint.transform.position);
+
+
+
         if (Vector2.Distance(transform.position, points[p].position) < 0.02f)
         {
             p++;
@@ -43,7 +48,7 @@ public class Enemy3 : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, points[p].position, speed * Time.deltaTime);
 
 
-        if ((Vector2.Distance(this.gameObject.transform.position, player.transform.position) > detectionDistance) && !isShooting)
+        if ((Vector2.Distance(this.gameObject.transform.position, player.transform.position) < detectionDistance) && !isShooting)
         {
 
             StartCoroutine(EnemyShoot(2f));
@@ -59,6 +64,12 @@ public class Enemy3 : MonoBehaviour
     }
 
 
+    private void rotateCrosshair(Vector3 shootPosition)
+    {
+        Vector3 distance = player.transform.position - pivotPoint.transform.position;
+        float angle = Mathf.Atan2(-distance.y, -distance.x) * Mathf.Rad2Deg;
+        pivotPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
 
     IEnumerator EnemyShoot (float seconds)
     {
@@ -67,10 +78,16 @@ public class Enemy3 : MonoBehaviour
         {
             clone = Instantiate(bullet, this.gameObject.transform.position, this.gameObject.transform.rotation);
             Rigidbody2D cloneRb = clone.GetComponent<Rigidbody2D>();
-            cloneRb.velocity = transform.TransformDirection(player.transform.position * bulletSpeed);
+            Vector3 dir = transform.TransformDirection(shootLocation.transform.position).normalized;
+            cloneRb.velocity = -dir * bulletSpeed;  //the problem has to lie here --> this is the only line of code that makes bullets move
             yield return new WaitForSeconds(seconds);
         }
 
         isShooting = false;
     }
+
+
+    //set the invisible - shooting location to be just in front of the enemy = make the enemy turn towards the player 
+    //then just set a pure force related to bullet speed and time to the bullet?
+
 }

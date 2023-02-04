@@ -4,39 +4,27 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
-    //simple patrol enemy - point A to point B
-
-    public Transform[] points;
-    public float speed;
-    public int startPoint;
-
-    private int p;
+    public Collider2D selfCollision;
+    public Collider2D smogTrigger;
 
 
-    // Start is called before the first frame update
-    void Start()
+    public void Awake()
     {
-        transform.position = points[startPoint].position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Vector2.Distance(transform.position, points[p].position) < 0.02f)
-        {
-            p++;
-            if (p == points.Length)
-            {
-                p = 0;
-            }
-        }
-        transform.position = Vector2.MoveTowards(transform.position, points[p].position, speed * Time.deltaTime);
+       smogTrigger = GetComponentInChildren<Collider2D>();
     }
 
 
-    //also some code for damaging player on collision (might be handled in the player script instead who knows
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       //if collided with player = player takes dmg
+    }
 
-    //code for player damaging this unit with axe
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //if player = take dmg to player
+
+    }
 
 
 }
