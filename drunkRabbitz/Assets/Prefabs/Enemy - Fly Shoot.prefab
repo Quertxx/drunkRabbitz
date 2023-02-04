@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2547028610182535395}
   - component: {fileID: 2547028610182535397}
   m_Layer: 0
-  m_Name: Enemy3
+  m_Name: Enemy - Fly Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
