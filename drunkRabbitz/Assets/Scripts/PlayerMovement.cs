@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 mousePos;
     public GameObject player;
-    private Rigidbody2D playerRB;
+    public Rigidbody2D playerRB;
     private float jumpTimer;
     public float maxjumpTimer = 1000;
     public float jumpMultiplyer;

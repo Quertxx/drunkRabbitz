@@ -8,6 +8,7 @@ public class Enemy2 : MonoBehaviour
     public Transform[] points;
     [SerializeField] int startPoint;
     private int p;
+    public float knockback;
 
 
 
@@ -22,6 +23,8 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] float speed;   //Speed of the enemy;
     Rigidbody2D rb;
 
+    PlayerMovement playerScript;
+    public Collider2D selfCollision;
 
 
     enum EnemyBehaviours
@@ -36,8 +39,9 @@ public class Enemy2 : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponentInParent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Start is called before the first frame update
@@ -99,4 +103,18 @@ public class Enemy2 : MonoBehaviour
                 break;
             }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Vector2 dir = player.transform.position - transform.position;
+            playerScript.Health = playerScript.Health - 25.0f;
+            playerScript.playerRB.AddForce(dir.normalized * knockback, ForceMode2D.Impulse);
+        }
+    }
+
+
+
+
 }

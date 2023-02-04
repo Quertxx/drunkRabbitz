@@ -21,13 +21,18 @@ public class Enemy3 : MonoBehaviour
     private bool isShooting = false;
     [SerializeField] Transform shootLocation;
     [SerializeField] GameObject pivotPoint;
-    
+    private float angle;
 
 
-    void Start()
+    PlayerMovement playerScript;
+    public Collider2D selfCollision;
+
+
+    void Awake()
     {
         transform.position = points[startPoint].position;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -67,7 +72,7 @@ public class Enemy3 : MonoBehaviour
     private void rotateCrosshair(Vector3 shootPosition)
     {
         Vector3 distance = player.transform.position - pivotPoint.transform.position;
-        float angle = Mathf.Atan2(-distance.y, -distance.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(-distance.y, -distance.x) * Mathf.Rad2Deg;
         pivotPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
@@ -76,16 +81,23 @@ public class Enemy3 : MonoBehaviour
         isShooting = true;
         if (isShooting)
         {
-            clone = Instantiate(bullet, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            clone = Instantiate(bullet, this.gameObject.transform.position, shootLocation.transform.rotation);
             Rigidbody2D cloneRb = clone.GetComponent<Rigidbody2D>();
-            Vector3 dir = transform.TransformDirection(shootLocation.transform.position).normalized;
-            cloneRb.velocity = -dir * bulletSpeed;  //the problem has to lie here --> this is the only line of code that makes bullets move
+            Vector3 dir = shootLocation.transform.position - player.transform.position;
+            cloneRb.velocity = -dir.normalized * bulletSpeed;  
             yield return new WaitForSeconds(seconds);
         }
 
         isShooting = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerScript.Health = playerScript.Health - 10.0f;
+        }
+    }
 
     //set the invisible - shooting location to be just in front of the enemy = make the enemy turn towards the player 
     //then just set a pure force related to bullet speed and time to the bullet?

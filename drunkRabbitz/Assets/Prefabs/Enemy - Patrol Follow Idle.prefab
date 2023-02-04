@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6552758275620262853}
   - component: {fileID: 6552758275620262858}
   - component: {fileID: 6552758275620262855}
+  - component: {fileID: 6624701777286415747}
   m_Layer: 0
   m_Name: EnemyBody
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6552758275620262859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7979321, y: 0.10603261, z: -0.03850075}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,6 +105,7 @@ MonoBehaviour:
   startPoint: 0
   detectionDistance: 2
   speed: 3
+  selfCollision: {fileID: 6624701777286415747}
 --- !u!50 &6552758275620262855
 Rigidbody2D:
   serializedVersion: 4
@@ -125,6 +127,64 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &6624701777286415747
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6552758275620262859}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 3}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.7160424, y: -0.2050347}
+      - {x: 0.57296574, y: 0.010570049}
+      - {x: 0.47589013, y: 0.060091056}
+      - {x: 0.26885575, y: 0.0697524}
+      - {x: 0.19953541, y: 0.22849613}
+      - {x: 0.11196901, y: 0.3039714}
+      - {x: -0.076190315, y: 0.28991994}
+      - {x: -0.23669562, y: 0.16904736}
+      - {x: -0.2819988, y: 0.038040817}
+      - {x: -0.43495983, y: 0.065948926}
+      - {x: -0.51791525, y: 0.036239587}
+      - {x: -0.6238358, y: -0.044811286}
+      - {x: -0.7031431, y: -0.18438625}
+      - {x: -0.7154676, y: -0.30114108}
+      - {x: -0.66377723, y: -0.3758408}
+      - {x: -0.27636337, y: -0.3785647}
+      - {x: -0.25251472, y: -0.6321897}
+      - {x: -0.21578944, y: -0.75302696}
+      - {x: -0.20683923, y: -0.95584285}
+      - {x: -0.22151689, y: -1.0720416}
+      - {x: -0.17774066, y: -1.2357029}
+      - {x: -0.16856775, y: -1.3579262}
+      - {x: -0.18014707, y: -1.4628136}
+      - {x: -0.040523827, y: -1.4674939}
+      - {x: 0.05670439, y: -1.4678702}
+      - {x: 0.18465136, y: -1.4718513}
+      - {x: 0.17154846, y: -1.2556247}
+      - {x: 0.22200112, y: -1.1397164}
+      - {x: 0.22208102, y: -0.9670645}
+      - {x: 0.21826161, y: -0.75834}
+      - {x: 0.2478698, y: -0.57355034}
+      - {x: 0.29890114, y: -0.3858006}
+      - {x: 0.6791083, y: -0.3809253}
 --- !u!1 &6552758276037981065
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6552758276037981065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.1498857, y: 0.3659026, z: 0.038275525}
+  m_LocalPosition: {x: -1.67, y: 0, z: 0.038275525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6552758276709435883}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9301147, y: 0.3659026, z: 0.038275525}
+  m_LocalPosition: {x: 1.33, y: 0, z: 0.038275525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -196,6 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2423998942567629327}
+  - component: {fileID: 7005933468787364871}
   m_Layer: 0
   m_Name: Enemy - Patrol Follow Idle
   m_TagString: Untagged
@@ -211,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7508931684708950183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0998853, y: -0.3559026, z: 0.03850075}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -221,3 +282,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &7005933468787364871
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7508931684708950183}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

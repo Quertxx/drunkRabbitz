@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7103295602908935258}
   - component: {fileID: 6677405675982687138}
   - component: {fileID: 5939314159333639770}
+  - component: {fileID: 1334710424060966738}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6942587662546401965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.51386, y: 0.51386, z: 0.51386}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d8c029ee55848614fa31817da43703ea, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,3 +120,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4404cdba40454844fbc915bcf7ebe101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selfCollision: {fileID: 1334710424060966738}
+--- !u!60 &1334710424060966738
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942587662546401965}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.26809788, y: 0.11441319}
+      - {x: -0.32406813, y: 0.07970906}
+      - {x: -0.3831447, y: 0.042184427}
+      - {x: -0.4050135, y: -0.0056410134}
+      - {x: -0.3963083, y: -0.051190708}
+      - {x: -0.3415631, y: -0.10626847}
+      - {x: -0.30651134, y: -0.11032543}
+      - {x: -0.20065734, y: -0.10204544}
+      - {x: -0.15526876, y: -0.08160992}
+      - {x: -0.09330998, y: -0.03568536}
+      - {x: -0.08171111, y: 0.01619704}
+      - {x: -0.12326199, y: 0.0681718}
+      - {x: -0.1945095, y: 0.11222626}
