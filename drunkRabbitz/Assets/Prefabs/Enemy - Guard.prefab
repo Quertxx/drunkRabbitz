@@ -99,9 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf778818c27bb344921f564a2e73e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
-  speed: 10
-  startPoint: 0
+  selfCollision: {fileID: 4257236473489434788}
+  playerScript: {fileID: 0}
 --- !u!70 &4257236473489434788
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,7 +111,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.028746307, y: -0.5717324}
@@ -128,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157920249376401042}
   m_Layer: 0
-  m_Name: Enemy - Patrol
+  m_Name: Enemy - Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,6 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7243575974204706767}
   - component: {fileID: 3654691258105184382}
+  - component: {fileID: 4677159064448154848}
   m_Layer: 0
   m_Name: Smog
   m_TagString: Untagged
@@ -257,3 +257,17 @@ PolygonCollider2D:
       - {x: 0.6289595, y: 0.17275357}
       - {x: 0.6913194, y: 0.37464136}
       - {x: 0.6872605, y: 0.623721}
+--- !u!114 &4677159064448154848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897996090749746403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ba0c3a4ca4b764f8bc3d68b40e7537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smogCollision: {fileID: 3654691258105184382}
+  playerScript: {fileID: 0}

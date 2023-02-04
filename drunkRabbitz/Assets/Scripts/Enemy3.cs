@@ -21,13 +21,16 @@ public class Enemy3 : MonoBehaviour
     private bool isShooting = false;
     [SerializeField] Transform shootLocation;
     [SerializeField] GameObject pivotPoint;
-    
+
+    PlayerMovement playerScript;
+    public Collider2D selfCollision;
 
 
     void Start()
     {
         transform.position = points[startPoint].position;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -86,6 +89,12 @@ public class Enemy3 : MonoBehaviour
         isShooting = false;
     }
 
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        playerScript.Health = -10f;
+    }
 
     //set the invisible - shooting location to be just in front of the enemy = make the enemy turn towards the player 
     //then just set a pure force related to bullet speed and time to the bullet?

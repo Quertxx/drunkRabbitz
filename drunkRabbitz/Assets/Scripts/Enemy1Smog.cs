@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Enemy1 : MonoBehaviour
+public class Enemy1Smog : MonoBehaviour
 {
-    public Collider2D selfCollision;
+    public Collider2D smogCollision;
     PlayerMovement playerScript;
 
     public void Awake()
@@ -14,11 +13,12 @@ public class Enemy1 : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-       if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            playerScript.Health = -20f;
+            playerScript.Health = -1f;
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1344359182624037577}
   - component: {fileID: 7103295602908935258}
   - component: {fileID: 6677405675982687138}
+  - component: {fileID: 2402612233871017416}
   - component: {fileID: 5939314159333639770}
   m_Layer: 0
   m_Name: Bullet
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6942587662546401965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.51386, y: 0.51386, z: 0.51386}
+  m_LocalScale: {x: 0.39576983, y: 0.39576983, z: 0.39576983}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d8c029ee55848614fa31817da43703ea, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,6 +108,45 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &2402612233871017416
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942587662546401965}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.18837075, y: 0.113706686}
+      - {x: -0.23986647, y: 0.11813773}
+      - {x: -0.2860603, y: 0.10886202}
+      - {x: -0.3443563, y: 0.074063875}
+      - {x: -0.38513353, y: 0.04567244}
+      - {x: -0.41354647, y: 0.0039149444}
+      - {x: -0.411918, y: -0.04807756}
+      - {x: -0.3684742, y: -0.091521434}
+      - {x: -0.3330951, y: -0.11710338}
+      - {x: -0.19985372, y: -0.11813775}
+      - {x: -0.10214287, y: -0.060448006}
+      - {x: -0.066595614, y: -0.023529962}
+      - {x: -0.062474966, y: 0.02834022}
+      - {x: -0.12497492, y: 0.083111845}
 --- !u!114 &5939314159333639770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,3 +159,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4404cdba40454844fbc915bcf7ebe101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mCollider: {fileID: 2402612233871017416}

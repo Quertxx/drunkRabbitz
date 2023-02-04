@@ -21,6 +21,7 @@ public class Enemy2 : MonoBehaviour
     // state-neutral variables
     [SerializeField] float speed;   //Speed of the enemy;
     Rigidbody2D rb;
+    PlayerMovement playerScript;
 
 
 
@@ -38,6 +39,7 @@ public class Enemy2 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     // Start is called before the first frame update
@@ -99,4 +101,14 @@ public class Enemy2 : MonoBehaviour
                 break;
             }
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            playerScript.Health = -20f;
+        }
+    }
+
 }
