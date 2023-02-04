@@ -12,7 +12,7 @@ public class Enemy3 : MonoBehaviour
 
 
     //shoot variables
-    public int detectionDistance;
+    public float detectionDistance;
     GameObject player;
     [SerializeField] GameObject bullet;
     [SerializeField] float bulletSpeed;
@@ -43,7 +43,7 @@ public class Enemy3 : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, points[p].position, speed * Time.deltaTime);
 
 
-        if ((Vector2.Distance(this.gameObject.transform.position, player.transform.position) > detectionDistance) && !isShooting)
+        if ((Vector2.Distance(this.gameObject.transform.position, player.transform.position) < detectionDistance) && !isShooting)
         {
 
             StartCoroutine(EnemyShoot(2f));
@@ -67,7 +67,8 @@ public class Enemy3 : MonoBehaviour
         {
             clone = Instantiate(bullet, this.gameObject.transform.position, this.gameObject.transform.rotation);
             Rigidbody2D cloneRb = clone.GetComponent<Rigidbody2D>();
-            cloneRb.velocity = transform.TransformDirection(player.transform.position * bulletSpeed);
+            Vector3 vel = transform.TransformDirection(player.transform.position).normalized;
+            cloneRb.velocity = vel * bulletSpeed;
             yield return new WaitForSeconds(seconds);
         }
 
