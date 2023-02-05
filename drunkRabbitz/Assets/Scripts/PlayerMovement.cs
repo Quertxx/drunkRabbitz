@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private Sprite playerspriterender;
     public int carrots = 0;
     private bool facingRight;
+    private TMP_Text carrotCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         playerRB = gameObject.GetComponent<Rigidbody2D>();
         healthBar = gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject.GetComponent<Slider>();
         jumpBar = GameObject.Find("JumpSlider").GetComponent<Slider>();
+        carrotCounter = GameObject.Find("Carrot, Counter").GetComponent<TextMeshProUGUI>();
         playerspriteRender = gameObject.GetComponent<SpriteRenderer>();
     }
 
@@ -60,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
 
         if (Input.GetKey(KeyCode.Mouse1) && !isRotating)
         {
@@ -69,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         healthBar.value = Health/maxHealth;
-
+        carrotCounter.text = (""+carrots);
     }
 
     private void FixedUpdate()

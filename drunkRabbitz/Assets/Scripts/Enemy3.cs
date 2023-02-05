@@ -9,6 +9,7 @@ public class Enemy3 : MonoBehaviour
     [SerializeField] int startPoint;
     private int p;
     [SerializeField] float speed;
+    public float health = 1;
 
 
     //shoot variables
@@ -22,6 +23,8 @@ public class Enemy3 : MonoBehaviour
     [SerializeField] Transform shootLocation;
     [SerializeField] GameObject pivotPoint;
     private float angle;
+    public GameObject drop;
+    private HealthPickup itemscript;
 
 
     PlayerMovement playerScript;
@@ -33,6 +36,7 @@ public class Enemy3 : MonoBehaviour
         transform.position = points[startPoint].position;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        itemscript = drop.GetComponent<HealthPickup>();
     }
 
     // Update is called once per frame
@@ -96,6 +100,26 @@ public class Enemy3 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerScript.Health = playerScript.Health - 10.0f;
+        }
+        if (collision.gameObject.CompareTag("Axe"))
+        {
+            health--;
+            if (health <= 0)
+            {
+                int randomnubmer;
+                randomnubmer = Random.Range(0, 10);
+                if(randomnubmer > 7)
+                {
+                    itemscript.pickTypesRef = HealthPickup.pickupType.health;
+                    GameObject itemdrop = Instantiate(drop, transform.position, Quaternion.identity);
+                }
+                else 
+                {
+                    itemscript.pickTypesRef = HealthPickup.pickupType.carrot;
+                    GameObject itemdrop = Instantiate(drop, transform.position, Quaternion.identity);
+                }
+                Destroy(this.gameObject);
+            }
         }
     }
 

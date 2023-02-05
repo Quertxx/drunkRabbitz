@@ -9,6 +9,8 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] int startPoint;
     private int p;
     public float knockback;
+    public GameObject drop;
+    private HealthPickup itemScript;
 
 
 
@@ -16,6 +18,7 @@ public class Enemy2 : MonoBehaviour
     Vector2 moveDirection;
     public int detectionDistance;
     GameObject player;
+    public float health = 2;
 
 
 
@@ -42,6 +45,7 @@ public class Enemy2 : MonoBehaviour
         rb = GetComponentInParent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        itemScript = drop.GetComponent<HealthPickup>();
     }
 
     // Start is called before the first frame update
@@ -50,6 +54,7 @@ public class Enemy2 : MonoBehaviour
         // switch to EnemyBehaviours.Idle if the enemy's base state is meant to be idle
         enemyState = EnemyBehaviours.Patrol;
         transform.position = points[startPoint].position;
+
     }
 
     // Update is called once per frame
@@ -84,7 +89,6 @@ public class Enemy2 : MonoBehaviour
             case EnemyBehaviours.Follow:
 
                 Vector2 direction = (player.transform.position - transform.position).normalized;
-                Debug.Log(direction);
                 moveDirection = direction;
                 rb.velocity = new Vector2(moveDirection.x, 0) * speed;
 
@@ -111,6 +115,32 @@ public class Enemy2 : MonoBehaviour
             Vector2 dir = player.transform.position - transform.position;
             playerScript.Health = playerScript.Health - 25.0f;
             playerScript.playerRB.AddForce(dir.normalized * knockback, ForceMode2D.Impulse);
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Axe"))
+        {
+            print(health);
+            health--;
+            if (health <= 0)
+            {
+                int randomnumber;
+                randomnumber = Random.Range(0, 10);
+                if(randomnumber > 7)
+                {
+                    itemScript.pickTypesRef = HealthPickup.pickupType.health;
+                    GameObject itemdrop = Instantiate(drop, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    itemScript.pickTypesRef = HealthPickup.pickupType.carrot;
+                    GameObject itemdrop = Instantiate(drop, transform.position, Quaternion.identity);
+                }
+                Destroy(this.gameObject);
+            }
+
         }
     }
 

@@ -201,12 +201,14 @@ MonoBehaviour:
   - {fileID: 1509840347249960627}
   startPoint: 0
   speed: 3
+  health: 1
   detectionDistance: 20
   bullet: {fileID: 6942587662546401965, guid: 45ee8b7f94ecc904daa1acf2aa82c9a7, type: 3}
   bulletSpeed: 5
   shootCooldown: 2
   shootLocation: {fileID: 1509840345981101671}
   pivotPoint: {fileID: 1509840346377708321}
+  drop: {fileID: 5674045578843026355, guid: 4974074e5dcec234c967fd884fe7e237, type: 3}
   selfCollision: {fileID: 1509840346778392244}
 --- !u!60 &1509840346778392244
 PolygonCollider2D:

@@ -21,21 +21,21 @@ public class HealthPickup : MonoBehaviour
         switch (pickTypesRef)
         {
             case pickupType.health:
-                if (itemCollider != null){
+                /*if (itemCollider != null){
                     Destroy(itemCollider);
                 }
-                itemCollider = gameObject.AddComponent<PolygonCollider2D>();
-                itemCollider.isTrigger = true;
+                itemCollider = gameObject.AddComponent<PolygonCollider2D>()*/;
+                //itemCollider.isTrigger = true;
                 spriteRendererRef.sprite = health;
                 break;
             case pickupType.carrot:
-                if (itemCollider != null)
+                /*if (itemCollider != null)
                 {
                     Destroy(itemCollider);
                 }
-                itemCollider = gameObject.AddComponent<PolygonCollider2D>();
-                itemCollider.isTrigger = true;
-                spriteRendererRef.color = Color.yellow;
+                itemCollider = gameObject.AddComponent<PolygonCollider2D>();*/
+                //itemCollider.isTrigger = true;
+                spriteRendererRef.sprite = carrot;
                 break;
         }
         player = GameObject.FindGameObjectWithTag("Player");
@@ -57,12 +57,13 @@ public class HealthPickup : MonoBehaviour
             switch (pickTypesRef)
             {
                 case pickupType.health:
-                    playerScript.Health = Mathf.Clamp(playerScript.Health, 0, playerScript.maxHealth)+ healthAmm;
-                    print(playerScript.Health);
+                    playerScript.Health = playerScript.Health + +healthAmm;
+                    playerScript.Health = Mathf.Clamp(playerScript.Health, 0, playerScript.maxHealth);
                     Destroy(this.gameObject);
                     break;
                 case pickupType.carrot:
                     playerScript.carrots++;
+                    print(playerScript.carrots);
                     Destroy(this.gameObject);
                     break;
             }
