@@ -26,6 +26,10 @@ public class BulletLife : MonoBehaviour
         {
             playerScript.Health = playerScript.Health - 20.0f;
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 

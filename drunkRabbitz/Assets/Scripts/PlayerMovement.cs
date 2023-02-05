@@ -78,6 +78,11 @@ public class PlayerMovement : MonoBehaviour
 
         healthBar.value = Health/maxHealth;
         carrotCounter.text = (""+carrots);
+
+        if(Health <= 0)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     private void FixedUpdate()

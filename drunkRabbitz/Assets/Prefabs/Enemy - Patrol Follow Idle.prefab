@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6552758275620262858}
   - component: {fileID: 6552758275620262855}
   - component: {fileID: 6624701777286415747}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6552758276037981064}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point0
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -228,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6552758276709435882}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point1
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -259,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2423998942567629327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy - Patrol Follow Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

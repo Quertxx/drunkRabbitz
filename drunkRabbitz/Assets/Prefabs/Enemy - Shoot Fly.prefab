@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509840345981101671}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShootLocation
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509840346180603578}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy - Shoot Fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509840346377708320}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1509840346778392245}
   - component: {fileID: 1509840346778392244}
   - component: {fileID: 7678149485084830956}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509840347249960627}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point1
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -316,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509840347622717403}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point0
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509840347690799755}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
