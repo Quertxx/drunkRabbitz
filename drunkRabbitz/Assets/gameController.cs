@@ -23,7 +23,7 @@ public class gameController : MonoBehaviour
       playerPos = GameObject.FindGameObjectWithTag("Player").transform;
       currentScene = SceneManager.GetActiveScene().buildIndex;
 
-      if (currentScene == 1 && playerScript.Health <= 0)
+      if (currentScene == 1 &&  playerScript.Health <= 0)
         {
             StartCoroutine(checkpointDelay(0.25f));
         }
