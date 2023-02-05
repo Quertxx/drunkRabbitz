@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5118282998226038985}
   - component: {fileID: 4593835913746856309}
-  - component: {fileID: 1862207575515195665}
   - component: {fileID: 2529574802949802226}
+  - component: {fileID: 185739466471041890}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -86,7 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1862207575515195665
+--- !u!114 &2529574802949802226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796634132770887494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419bb365c95c74f4a95056ac37314a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axeCollider: {fileID: 185739466471041890}
+--- !u!60 &185739466471041890
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,19 +147,6 @@ PolygonCollider2D:
       - {x: -0.09375, y: -0.375}
       - {x: -0.046875, y: -0.28125}
       - {x: -0.1875, y: -0.0625}
---- !u!114 &2529574802949802226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5796634132770887494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419bb365c95c74f4a95056ac37314a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axeCollider: {fileID: 1862207575515195665}
 --- !u!1 &6255080363330260989
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 9157108608822686937}
-  playerRB: {fileID: 0}
+  playerRB: {fileID: 9157108608822686943}
   maxjumpTimer: 500
   jumpMultiplyer: 10
   axe: {fileID: 9157108608886175114}

@@ -116,6 +116,28 @@ public class Enemy2 : MonoBehaviour
             playerScript.Health = playerScript.Health - 25.0f;
             playerScript.playerRB.AddForce(dir.normalized * knockback, ForceMode2D.Impulse);
         }
+        if (collision.gameObject.CompareTag("Axe"))
+        {
+            print(health);
+            health--;
+            if (health <= 0)
+            {
+                int randomnumber;
+                randomnumber = Random.Range(0, 10);
+                if (randomnumber > 7)
+                {
+                    itemScript.pickTypesRef = HealthPickup.pickupType.health;
+                    GameObject itemdrop = Instantiate(drop, transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    itemScript.pickTypesRef = HealthPickup.pickupType.carrot;
+                    GameObject itemdrop = Instantiate(drop, transform.position, Quaternion.identity);
+                }
+                Destroy(this.gameObject);
+            }
+
+        }
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
