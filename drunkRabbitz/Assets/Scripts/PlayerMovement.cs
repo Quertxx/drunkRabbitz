@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     public int carrots = 0;
     private bool facingRight;
     private TMP_Text carrotCounter;
+    private bool isCharging = false;
+
+    public Animator myAnim;
+    public AudioSource boingSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +62,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
+            boingSound.Play();
+            isCharging = false;
             isJumping = true;
+            myAnim.SetBool("isCharging", false);
+            myAnim.SetBool("isJumping", true);
+            
             playerRB.AddForce(dir.normalized * jumpTimer);
             jumpTimer = 0;
             
@@ -79,10 +88,10 @@ public class PlayerMovement : MonoBehaviour
         healthBar.value = Health/maxHealth;
         carrotCounter.text = (""+carrots);
 
-        if(Health <= 0)
+        /*if(Health <= 0)
         {
             SceneManager.LoadScene(1);
-        }
+        }*/
     }
 
     private void FixedUpdate()
@@ -91,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
         jumpBar.value = jumpTimer / maxjumpTimer;
         if (Input.GetKey(KeyCode.Mouse0) && !isJumping)
         {
+            isCharging = true;
+            myAnim.SetBool("isCharging", true);
             dir = (mousePos - gameObject.transform.position).normalized;
             jumpTimer = (Mathf.Clamp(jumpTimer, 0, maxjumpTimer) + jumpMultiplyer);
         }
@@ -102,7 +113,8 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             isJumping = false;
-            
+            myAnim.SetBool("isJumping", false);
+
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -112,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
             if(isJumping == true)
             {
                 isJumping = false;
+                myAnim.SetBool("isJumping", false);
             }
             
         }

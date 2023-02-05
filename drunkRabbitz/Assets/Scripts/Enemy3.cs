@@ -10,6 +10,8 @@ public class Enemy3 : MonoBehaviour
     private int p;
     [SerializeField] float speed;
     public float health = 1;
+    public ParticleSystem death;
+    public AudioSource deathSound;
 
 
     //shoot variables
@@ -118,6 +120,7 @@ public class Enemy3 : MonoBehaviour
                     itemscript.pickTypesRef = HealthPickup.pickupType.carrot;
                     GameObject itemdrop = Instantiate(drop, transform.position, Quaternion.identity);
                 }
+                Instantiate(death, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

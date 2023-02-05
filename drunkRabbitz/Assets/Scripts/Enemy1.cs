@@ -9,6 +9,8 @@ public class Enemy1 : MonoBehaviour
     public float health = 1;
     public GameObject drop;
     private HealthPickup itemScript;
+    public ParticleSystem death;
+    public AudioSource deathSound;
 
     public void Awake()
     {
@@ -40,6 +42,7 @@ public class Enemy1 : MonoBehaviour
             }
             if (health <= 0)
             {
+                Instantiate(death, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

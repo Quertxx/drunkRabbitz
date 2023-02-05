@@ -11,7 +11,8 @@ public class Enemy2 : MonoBehaviour
     public float knockback;
     public GameObject drop;
     private HealthPickup itemScript;
-
+    public ParticleSystem death;
+    public AudioSource deathSound;
 
 
     //follow-specific variables
@@ -138,6 +139,7 @@ public class Enemy2 : MonoBehaviour
                     itemScript.pickTypesRef = HealthPickup.pickupType.carrot;
                     GameObject itemdrop = Instantiate(drop, transform.position, Quaternion.identity);
                 }
+                Instantiate(death, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
 
