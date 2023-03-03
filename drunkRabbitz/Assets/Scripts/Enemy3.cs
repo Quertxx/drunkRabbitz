@@ -27,7 +27,7 @@ public class Enemy3 : MonoBehaviour
     private float angle;
     public GameObject drop;
     private HealthPickup itemscript;
-
+    private SpriteRenderer enemyspriteRenderer;
 
     PlayerMovement playerScript;
     public Collider2D selfCollision;
@@ -39,6 +39,7 @@ public class Enemy3 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         itemscript = drop.GetComponent<HealthPickup>();
+        enemyspriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -46,7 +47,14 @@ public class Enemy3 : MonoBehaviour
     {
         rotateCrosshair(pivotPoint.transform.position);
 
-
+        if(player.transform.position.x >= gameObject.transform.position.x)
+        {
+            enemyspriteRenderer.flipX = true;
+        }
+        else
+        {
+            enemyspriteRenderer.flipX = false;
+        }
 
         if (Vector2.Distance(transform.position, points[p].position) < 0.02f)
         {

@@ -63,7 +63,6 @@ public class HealthPickup : MonoBehaviour
                     break;
                 case pickupType.carrot:
                     playerScript.carrots++;
-                    print(playerScript.carrots);
                     Destroy(this.gameObject);
                     break;
             }
